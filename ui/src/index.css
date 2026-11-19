@@ -1,0 +1,182 @@
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+
+  --border-light: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --border-accent: #0284c7;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+
+  --primary: #0284c7;
+  --primary-light: #e0f2fe;
+  --emerald: #059669;
+  --emerald-light: #d1fae5;
+  --rose: #e11d48;
+  --rose-light: #ffe4e6;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --violet: #7c3aed;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Custom Tactical Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Tactical Card Utility */
+.med-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.med-card:hover {
+  border-color: #cbd5e1;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CINEMATIC TACTICAL THREAT ALERT ANIMATIONS
+   ───────────────────────────────────────────────────────────── */
+
+@keyframes pulseVignette {
+  0%, 100% {
+    box-shadow: inset 0 0 100px 30px rgba(239, 68, 68, 0.35);
+  }
+  50% {
+    box-shadow: inset 0 0 160px 60px rgba(239, 68, 68, 0.65);
+  }
+}
+
+@keyframes threatFlash {
+  0%, 100% {
+    background-color: #ef4444;
+    color: #ffffff;
+  }
+  50% {
+    background-color: #b91c1c;
+    color: #fef2f2;
+  }
+}
+
+@keyframes scanlineAnim {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes floatAlertSlideIn {
+  0% {
+    transform: translateY(40px) scale(0.92);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Floating tactical threat alert card anchored at bottom-left */
+.floating-threat-card {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9999;
+  width: 460px;
+  max-width: calc(100vw - 48px);
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid #ef4444;
+  border-radius: var(--radius-xl);
+  padding: 18px 20px;
+  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.2), 0 0 30px rgba(239, 68, 68, 0.25);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+  animation: floatAlertSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cinematic-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #ef4444, transparent);
+  animation: scanlineAnim 2.2s infinite linear;
+  opacity: 0.85;
+}
+
+.threat-badge-flashing {
+  animation: threatFlash 1.1s infinite ease-in-out;
+}
+
+/* KPI Cards Responsive Grid */
+.kpi-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .kpi-cards-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1400px) {
+  .kpi-cards-grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 10px;
+  }
+}

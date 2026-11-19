@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+backend/.venv/
+.venv/
+venv/
+ENV/
+env/
+backend/scratch/
+
+# Database files & journals
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+
+# Large Model Weights (Transferred directly via SFTP, not via Git)
+backend/models/*.pth
+backend/models/*.pt
+backend/models/*.onnx
+models/*.pth
+models/*.pt
+
+# Test Sample Videos & Training Datasets
+backend/test/
+test/
+backend/train/
+train/
+*.mp4
+*.avi
+*.mkv
+*.mov
+
+# Node & Frontend
+ui/node_modules/
+node_modules/
+.npm
+dist/assets/*.map
+ui/dist/assets/*.map
+
+# Environment & Logs
+.env
+.env.local
+*.log
+.DS_Store
+Thumbs.db

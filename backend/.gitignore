@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.log
+train/dataset/
+live_cam.py
+test/
+test_video.py
+train/train_colab.py
